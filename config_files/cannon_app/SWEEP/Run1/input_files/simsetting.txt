@@ -1,0 +1,7 @@
+"gravity",5.8
+"mass",3.8
+"velocity",2.0
+"angle",0.79
+"height",1.0
+"air_resistance",0.2
+"time_step",0.01

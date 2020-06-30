@@ -1,0 +1,4 @@
+
+cd $job_results
+
+python cannonsim.py
