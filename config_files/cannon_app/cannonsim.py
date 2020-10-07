@@ -43,7 +43,7 @@ if __name__ == "__main__":
     parser.add_argument('--input_dir',
                         action="store", default='input_files')
     parser.add_argument('--output_dir',
-                        action="store", default='.')
+                        action="store", default='output_files')
 
     args = parser.parse_args()
     input_dir = args.input_dir
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     # check if output_dir is exists
     if not path.exists(output_dir):
         makedirs(output_dir)
-    output_file = path.join(output_dir, "output.txt")
+    output_file = path.join(output_dir, "py_output.txt")
 
     with open(output_file, "w") as f:
         f.write("Dist,lastvx,lastvy\n")
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         print(f.read())
 
     # plotting the results
-    output_png = path.join(output_dir, "output.png")
+    output_png = path.join(output_dir, "py_output.png")
     fig = plt.figure()
     ax = plt.axes()
     ax.plot(out_x, out_y)
