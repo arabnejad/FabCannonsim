@@ -1,0 +1,52 @@
+# This is the user personal configuration for job submission and execution for FabFlee plugin
+# All given variable here will be override machine settings loaded from (a) FabSim3/deploy/machines.yml and (b) FabSim3/deploy/machines_user.yml 
+# 
+# Here, you can find some examples for pre-defined remote machines
+# All env variable can be modified here and will overwrite setting in machines.yml and machines_user.yml
+
+default:
+  
+  c_app_run_prefix: "gcc cannonsim.cpp -o cannonsim -lm"
+  c_app_run_command: "./cannonsim"
+
+  py_app_run_command: "python cannonsim.py"
+
+  java_app_run_prefix: "export CLASSPATH='java_libs/commons-cli-1.3.1.jar:.'"
+  java_app_compile_command: "javac cannonsim.java"
+  java_app_run_command: "java cannonsim"
+
+
+localhost:
+
+
+eagle_hidalgo:
+
+  cores: 1
+  # format days-hours:minutes:seconds
+  job_wall_time : "0-0:10:00"
+
+  # list of available partitions : sinfo --Format=partition
+  partition_name: "fast"
+
+  # required modules
+  modules:
+    # list of modules to be loaded on remote machine
+    loaded: ["python/3.7.3","java8/jdk1.8.0_40"]
+    # list of modules to be unloaded on remote machine
+    unloaded: ["python"]
+
+eagle_vecma:
+
+  cores: 1
+  # format days-hours:minutes:seconds
+  job_wall_time : "0-0:10:00"
+
+  # list of available partitions : sinfo --Format=partition
+  partition_name: "fast"
+
+  # required modules
+  modules:
+    # list of modules to be loaded on remote machine
+    loaded: ["python/3.7.3","java8/jdk1.8.0_40"]
+    # list of modules to be unloaded on remote machine
+    unloaded: ["python"]
