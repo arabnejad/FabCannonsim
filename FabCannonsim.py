@@ -6,6 +6,7 @@ add_local_paths("FabCannonsim")
 
 
 @task
+@load_plugin_env_vars("FabCannonsim")
 def Cannonsim(app,
               label='',
               **args):
@@ -17,7 +18,7 @@ def Cannonsim(app,
     '''
     if len(label) > 0:
         env.job_name_template += "_{}".format(label)
-    load_plugin_machine_vars(app)
+
     update_environment(args)
     with_config(app)
     execute(put_configs, app)
@@ -25,6 +26,7 @@ def Cannonsim(app,
 
 
 @task
+@load_plugin_env_vars("FabCannonsim")
 def Cannonsim_ensemble(app,
                        label='',
                        **args):
@@ -37,9 +39,8 @@ def Cannonsim_ensemble(app,
 
     if len(label) > 0:
         env.job_name_template += "_{}".format(label)
-    load_plugin_machine_vars(app)
-    update_environment(args)
 
+    update_environment(args)
     sweep_dir = find_config_file_path(app) + "/SWEEP"
     env.script = 'cannonsim'
     run_ensemble(app, sweep_dir, **args)
