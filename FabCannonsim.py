@@ -1,5 +1,8 @@
 
-from base.fab import *
+try:
+    from fabsim.base.fab import *
+except ImportError:
+    from base.fab import *
 
 # Add local script and template path for FabSim3
 add_local_paths("FabCannonsim")
