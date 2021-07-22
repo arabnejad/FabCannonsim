@@ -44,6 +44,7 @@ def Cannonsim_ensemble(app,
         env.job_name_template += "_{}".format(label)
 
     update_environment(args)
+    with_config(app)
     sweep_dir = find_config_file_path(app) + "/SWEEP"
     env.script = 'cannonsim'
     run_ensemble(app, sweep_dir, **args)
